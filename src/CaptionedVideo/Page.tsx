@@ -12,17 +12,24 @@ import { TikTokPage } from "@remotion/captions";
 
 const fontFamily = "Inter";
 
+const DESIRED_FONT_SIZE = 54;
+const HIGHLIGHT_COLOR = "#39E508";
+
 const container: React.CSSProperties = {
   justifyContent: "center",
   alignItems: "center",
   top: undefined,
   bottom: 350,
-  height: 180,
+  height: 100,
+  width: "fit-content",
+  padding: "0 26px",
   backgroundColor: "#9149af",
+  borderRadius: 24,
+  position: "absolute",
+  top: "20%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
 };
-
-const DESIRED_FONT_SIZE = 70;
-const HIGHLIGHT_COLOR = "#39E508";
 
 export const Page: React.FC<{
   enterProgress: number;
@@ -35,11 +42,10 @@ export const Page: React.FC<{
   const fittedText = fitText({
     fontFamily,
     text: page.text,
-    withinWidth: width * 0.9,
+    withinWidth: Infinity,
   });
-
+  
   const fontSize = Math.min(DESIRED_FONT_SIZE, fittedText.fontSize);
-  console.log(page);
   return (
     <AbsoluteFill style={container}>
       <div
@@ -52,7 +58,7 @@ export const Page: React.FC<{
             translateY(interpolate(enterProgress, [0, 1], [50, 0])),
           ]),
           fontFamily,
-          textTransform: "uppercase",
+          // textTransform: "uppercase",
         }}
       >
         <span

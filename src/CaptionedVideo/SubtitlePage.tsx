@@ -18,11 +18,11 @@ const SubtitlePage: React.FC<{ page: TikTokPage }> = ({ page }) => {
     config: {
       damping: 200,
     },
-    durationInFrames: 5,
+    durationInFrames: 0.1,
   });
 
   return (
-    <AbsoluteFill>
+    <AbsoluteFill >
       <Page enterProgress={enter} page={page} />
     </AbsoluteFill>
   );
