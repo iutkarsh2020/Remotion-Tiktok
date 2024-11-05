@@ -5,22 +5,23 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { TheBoldFont } from "../load-font";
+// import { TheBoldFont } from "../load-font";
 import { fitText } from "@remotion/layout-utils";
 import { makeTransform, scale, translateY } from "@remotion/animation-utils";
 import { TikTokPage } from "@remotion/captions";
 
-const fontFamily = TheBoldFont;
+const fontFamily = "Inter";
 
 const container: React.CSSProperties = {
   justifyContent: "center",
   alignItems: "center",
   top: undefined,
   bottom: 350,
-  height: 150,
+  height: 180,
+  backgroundColor: "#9149af",
 };
 
-const DESIRED_FONT_SIZE = 120;
+const DESIRED_FONT_SIZE = 70;
 const HIGHLIGHT_COLOR = "#39E508";
 
 export const Page: React.FC<{
@@ -38,14 +39,13 @@ export const Page: React.FC<{
   });
 
   const fontSize = Math.min(DESIRED_FONT_SIZE, fittedText.fontSize);
-
+  console.log(page);
   return (
     <AbsoluteFill style={container}>
       <div
         style={{
           fontSize,
-          color: "white",
-          WebkitTextStroke: "20px black",
+          color: "rgba(255, 255, 255, 0.3)",
           paintOrder: "stroke",
           transform: makeTransform([
             scale(interpolate(enterProgress, [0, 1], [0.8, 1])),

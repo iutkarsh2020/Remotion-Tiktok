@@ -96,7 +96,7 @@ export const CaptionedVideo: React.FC<{
       captions: subtitles ?? [],
     });
   }, [subtitles]);
-
+  console.log(pages);
   return (
     <AbsoluteFill style={{ backgroundColor: "white" }}>
       <AbsoluteFill>
